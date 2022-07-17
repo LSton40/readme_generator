@@ -61,10 +61,11 @@ const questions = [
 
 
 // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-function writeToFile('README.md', data, (error) => {
-    error ? console.log(error) : console.log('Success!')
-});
+function writeToFile(fileName, data) {
+    fs.writeToFile('README.md', data, (error) => {
+        error ? console.log(error) : console.log('Success!')
+    });
+};
 
 
 // fs.writeFile('log.txt', 'new line of text', (err) =>
@@ -84,7 +85,7 @@ function init() {
         markdown.generateMarkdown(data);
     })
     .then((output) => {
-        fs[writeToFile(output)];
+        writeToFile(output);
     })
 };
 
