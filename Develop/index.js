@@ -25,8 +25,10 @@ message: 'Please enter your title'
     message: 'Please describe how to use your project'
 },
 {
+    type: 'list'
     name: 'license',
-    message: 'Please enter your license'
+    message: 'Please choose your license'
+    choices: ['MIT License', 'Apache License 2.0', 'Mozilla Public License 2.0', 'GNU General Public License v3.0', 'GNU Affero General Public License v3.0', 'GNU Lesser General Public License v3.0', 'ISC License', 'Boost Software License 1.0', 'The Unlicense', 'No license']
 },
 {
     name: 'contributing',
@@ -40,6 +42,15 @@ message: 'Please enter your title'
     name: 'questions',
     message: 'Please enter your contact information to answer questions'
 }];
+
+
+// inquirer.prompt(questions)
+// .then((data) => {
+
+// })
+// .then((data) => {
+//     markdown.generateMarkdown(data);
+// })
 
 // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}
@@ -67,7 +78,13 @@ function writeToFile('README.md', (error, data) => {
 
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions)
+    .then((data) => {
+        markdown.generateMarkdown(data);
+    })
+    .then(writeToFile(data))
+}
 
 // Function call to initialize app
 init();
