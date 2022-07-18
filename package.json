@@ -6,11 +6,18 @@
   "description": "[How to create a Professional README](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LSton40/readme_generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LSton40/readme_generator/issues"
+  },
+  "homepage": "https://github.com/LSton40/readme_generator#readme"
 }

@@ -62,10 +62,13 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeToFile('README.md', data, (error) => {
-        error ? console.log(error) : console.log('Success!')
-    });
+    return fileName, data;
 };
+
+
+// fs.writeToFile('README.md', data, (error) => {
+//     error ? console.log(error) : console.log('Success!')
+// });
 
 
 // fs.writeFile('log.txt', 'new line of text', (err) =>
@@ -82,11 +85,15 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions)
     .then((data) => {
-        markdown.generateMarkdown(data);
+        return markdown(data);
     })
     .then((output) => {
-        writeToFile(output);
-    })
+        // fs.writeToFile('README.md', output);
+        // console.log(output);
+
+        return writeToFile('README.md', output);
+
+});
 };
 
 // Function call to initialize app
