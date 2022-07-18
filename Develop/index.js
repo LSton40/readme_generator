@@ -3,6 +3,15 @@ const inquirer = require('inquirer');
 const markdown = require('./utils/generateMarkdown');
 
 
+//Auto generate headings, with user title as Title heading
+//Auto generate Table of Contents
+//List of license options, generate and add badge and notice added under License
+//Enter GitHub username, generates link with directions under Questions
+//Enter email address, adds to Questions with directions on contacting
+//Prompt user to add Description, Installation, Usage, Contributing GUidelines, Tests
+
+
+
 // TODO: Create an array of questions for user input
 const questions = [{
 name: 'title',
@@ -42,23 +51,12 @@ message: 'Please enter your title'
 }];
 
 // TODO: Create a function to write README file
+
 // function writeToFile(fileName, data) {}
 function writeToFile('README.md', (error, data) => {
     error ? console.log(error) : //;
 }) {}
 
-
-// fs.readFile('data.csv', 'utf8', (error, data) =>
-// error ? console.error(error) : console.log(data)
-// );
-
-// fs.writeFile('log.txt', process.argv[2], (err) =>
-// err ? console.error(err) : console.log('Success!')
-// );
-
-// fs.writeFile('log.txt', 'new line of text', (err) =>
-// err ? console.error(err) : console.log('Success!')
-// );
 
 // fs.appendFile('log.txt', 'uptown girl', (err)=>
 //   err ? console.error(err) : console.log('Success!')
