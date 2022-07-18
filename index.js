@@ -8,22 +8,22 @@ const questions = [
     {
         type: 'input',
         name: 'title',
-        message: 'Please give your project a title'
+        message: 'Please give your project a title.'
     },
     {
         type: 'input',
         name: 'name',
-        message: 'Please enter the name you would like to be credited as author of this project'
+        message: 'Please enter the name you would like to be credited as author of this project.'
     },
     {
         type: 'input',
         name: 'github',
-        message: 'Please enter your GitHub username'
+        message: 'Please enter your GitHub username.'
     },
     {
         type: 'input',
         name: 'email',
-        message: 'Please enter your preferred contact email for this project'
+        message: 'Please enter your preferred contact email for this project.'
     },
     {
         type: 'list',
@@ -33,53 +33,37 @@ const questions = [
     },
     {
         type: 'input',
+        name: 'year',
+        message: 'Please enter the copyright year for this project.'
+    },
+    {
+        type: 'input',
         name: 'description',
-        message: 'Please describe your project'
+        message: 'Please describe your project.'
     },
     {
         type: 'input',
         name: 'installation',
-        message: 'Please describe the installation for your project'
+        message: 'Please describe the installation for your project.'
     },
     {
         type: 'input',
         name: 'usage',
-        message: 'Please describe how to use your project'
+        message: 'Please describe how to use your project.'
     },
     {
         type: 'input',
         name: 'contribute',
-        message: 'Please describe information on contributing to your project'
+        message: 'Please describe information on contributing to your project.'
     },
     {
         type: 'input',
         name: 'tests',
-        message: 'Please suggest some tests for your project'
+        message: 'Please suggest some tests for your project.'
     }
 ];
 
-
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    return fileName, data;
-};
-
-
-// fs.writeToFile('README.md', data, (error) => {
-//     error ? console.log(error) : console.log('Success!')
-// });
-
-
-// fs.writeFile('log.txt', 'new line of text', (err) =>
-// err ? console.error(err) : console.log('Success!')
-// );
-
-// fs.appendFile('log.txt', 'uptown girl', (err)=>
-//   err ? console.error(err) : console.log('Success!')
-// );
-
-
-
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
@@ -87,12 +71,10 @@ function init() {
         return markdown(data);
     })
     .then((output) => {
-        // fs.writeToFile('README.md', output);
-        // console.log(output);
-
-        return writeToFile('README.md', output);
-
-});
+        fs.writeFile('README.md', output, (error) => {
+            error ? console.log(error) : console.log('README successfully generated!')
+        });
+    });
 };
 
 // Function call to initialize app

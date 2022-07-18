@@ -33,7 +33,6 @@ function renderLicenseBadge(license) {
     default:
       licenseBadge = '';
   }
-  console.log(licenseBadge);
   return licenseBadge;
 }
 
@@ -72,62 +71,62 @@ function renderLicenseLink(license) {
     default:
       licenseLink = '';
   }
-  console.log(licenseLink);
     return licenseLink;
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  // renderLicenseBadge(license);
-  renderLicenseLink(license);
+  return `This project is licensed under the terms of ${renderLicenseLink(license)}`;
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}  
 
-    By: ${data.name}  
+By: ${data.name}  
 
-    ${renderLicenseBadge(data.license)}  
+${renderLicenseBadge(data.license)}  
 
-    ## Description  
+## Description  
     
-    ${data.description}  
+${data.description}  
 
-    ## Table of Contents  
+## Table of Contents  
 
-    - [Installation](##installation)  
-    - [Usage](##usage)  
-    - [License](##license)  
-    - [How to Contribute](##how-to-contribute)  
-    - [Tests](##tests)  
-    - [Questions](##questions)  
+- [Installation](#installation)  
+- [Usage](#usage)  
+- [License](#license)  
+- [How to Contribute](#how-to-contribute)  
+- [Tests](#tests)  
+- [Questions](#questions)  
 
-    ## Installation  
+## Installation  
     
-    ${data.installation}  
+${data.installation}  
 
-    ## Usage  
-    ${data.usage}  
+## Usage  
+${data.usage}  
 
-    ## License  
+## License  
     
-    ${renderLicenseSection(data.license)}  
+${renderLicenseSection(data.license)}  
 
-    ## How to Contribute  
+Copyright (c) ${data.year} ${data.name}.  
+
+## How to Contribute  
+  
+${data.contribute}  
+
+## Tests  
     
-    ${data.contribute}  
+${data.tests}  
 
-    ## Tests  
+## Questions  
     
-    ${data.tests}  
+[${data.github} GitHub](https://github.com/${data.github})  
 
-    ## Questions  
-    
-    [${data.github} GitHub](https://github.com/${data.github})  
-
-    If you have any questions, please contact me at ${data.email}.
+If you have any questions, please contact me at ${data.email}.
 `;
 }
 
